@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+         #
+#    By: aderison <aderison@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2023/12/21 14:18:53 by arnaud           ###   ########.fr        #
+#    Updated: 2024/04/13 13:27:14 by aderison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
+OBJ_DIR = obj
 CFLAGS = -Wall -Wextra -Werror
 
 # Colors
@@ -23,7 +24,7 @@ NC=\033[0m
 
 # Libft sources
 LIBFT_SRCS = $(wildcard src/**/*.c)
-LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
+LIBFT_OBJS = $(LIBFT_SRCS:%c=obj/%o)
 
 # Compilation rules
 all: $(NAME)
@@ -32,16 +33,17 @@ $(NAME): $(LIBFT_OBJS)
 	@ar rcs $(NAME) $^
 	@echo "${YELLOW}Library $(NAME) created.${NC}"
 
-%.o: %.c
-	@echo "${CYAN}Compiling $<...${NC}"
+obj/%.o: %.c
+	@mkdir -p $(dir $@)
+	@echo -n "\r${CYAN}Compiling $<...${NC}"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(LIBFT_OBJS)
+	@rm -rf obj
 	@echo "${GREEN}Object files cleaned.${NC}"
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -r libft.a
 	@echo "${RED}All files removed.${NC}"
 
 re: fclean all

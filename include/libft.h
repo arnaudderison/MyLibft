@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:41:28 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/20 18:27:50 by arnaud           ###   ########.fr       */
+/*   Updated: 2024/04/13 12:28:19 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -64,11 +66,15 @@ void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memset(void *s, int c, size_t n);
-void				ft_putchar_fd(char c, int fd);
+int					ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
-void				ft_putnbr_fd(int nb, int fd);
-void				ft_putstr_fd(char const *s, int fd);
+int					ft_putnbr_fd(int nb, int fd);
+int					ft_putstr_fd(char const *s, int fd);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				**ft_split(const char *s, char c);
+int					ft_u_putnbr_fd(unsigned int nb, int fd);
+int					ft_puthex_fd(int nb, int isMaj, int fd);
+int					ft_putptr(size_t addr);
+int					ft_printf(const char *strs, ...);
 
 #endif

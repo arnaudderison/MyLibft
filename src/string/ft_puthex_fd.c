@@ -1,58 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_puthex_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 14:46:24 by arnaud            #+#    #+#             */
-/*   Updated: 2024/04/13 12:06:26 by aderison         ###   ########.fr       */
+/*   Created: 2023/12/05 15:51:46 by arnaud            #+#    #+#             */
+/*   Updated: 2024/04/13 12:12:19 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-static int	ft_int_len(int n)
+static int	ft_len_hex(unsigned int nb)
 {
-	int				len;
-	unsigned int	nb;
+	int	len;
 
-	len = 1;
-	if (n < 0)
+	len = 0;
+	if (nb < 16)
+		return (1);
+	while (nb != 0)
 	{
+		nb /= 16;
 		len++;
-		nb = (unsigned int)(-n);
-	}
-	else
-		nb = (unsigned int)(n);
-	while (nb > 9)
-	{
-		len++;
-		nb /= 10;
 	}
 	return (len);
 }
 
-int	ft_putnbr_fd(int nb, int fd)
+int	ft_puthex_fd(int nb, int isMaj, int fd)
 {
-	int				len;
+	char			base[17];
 	unsigned int	num;
+	int				len;
 
-	len = ft_int_len(nb);
-	if (nb < 0)
-	{
-		if (ft_putchar_fd('-', fd) < 0)
-			return (-1);
-		num = (unsigned int)(-nb);
-	}
+	if (isMaj == 0)
+		ft_strlcpy(base, "0123456789abcdef", 17);
 	else
-		num = (unsigned int)(nb);
-	if (num >= 10)
+		ft_strlcpy(base, "0123456789ABCDEF", 17);
+	num = (unsigned int)nb;
+	len = ft_len_hex(num);
+	if (num > 15)
 	{
-		if (ft_putnbr_fd(num / 10, fd) < 0)
+		if (ft_puthex_fd_printf(num / 16, isMaj, fd) < 0)
 			return (-1);
 	}
-	if (ft_putchar_fd(num % 10 + '0', fd) < 0)
+	if (ft_putchar_fd(base[num % 16], fd) < 0)
 		return (-1);
 	return (len);
 }

@@ -26,7 +26,8 @@ NC=\033[0m
 LIBFT_STRING = $(addprefix string/, ft_atoi.c ft_putchar_fd.c ft_putnbr_fd.c \
 ft_split.c ft_strdup.c ft_strlcat.c ft_strmapi.c ft_strrchr.c ft_tolower.c \
 ft_isalpha.c ft_putendl_fd.c ft_putptr.c ft_strchr.c ft_striteri.c ft_strlcpy.c \
-ft_strncmp.c ft_strtrim.c ft_toupper.c ft_isprint.c)
+ft_strncmp.c ft_strtrim.c ft_toupper.c ft_isprint.c ft_pointer.c ft_puthex_fd.c \
+ft_putstr_fd.c ft_strlen.c ft_u_putnbr_fd.c)
 
 #Libft number
 LIBFT_NUM = $(addprefix number/, ft_isalnum.c ft_isascii.c ft_isdigit.c ft_itoa.c)

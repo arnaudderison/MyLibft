@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 08:28:24 by arnaud            #+#    #+#             */
-/*   Updated: 2024/04/13 12:27:49 by aderison         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:55:01 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	proc_command(va_list args, char flag, int *len)
 	else if (flag == 's')
 		tmp = ft_putstr_fd(va_arg(args, char *), 1);
 	else if (flag == 'p')
-		tmp = ft_putptr(va_arg(args, size_t));
+		tmp = ft_pointer(va_arg(args, size_t));
 	else if (flag == 'd' || flag == 'i')
 		tmp = ft_putnbr_fd(va_arg(args, int), 1);
 	else if (flag == 'u')

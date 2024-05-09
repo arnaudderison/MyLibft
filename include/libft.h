@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:41:28 by arnaud            #+#    #+#             */
-/*   Updated: 2024/05/09 15:48:07 by aderison         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:56:34 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,12 @@ int					ft_putnbr_fd(int nb, int fd);
 int					ft_putstr_fd(char const *s, int fd);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				**ft_split(const char *s, char c);
-int					ft_u_putnbr_fd(unsigned int nb, int fd);
-int					ft_puthex_fd(int nb, int isMaj, int fd);
 int					ft_putptr(size_t addr);
 int					ft_printf(const char *strs, ...);
 void				ft_free_matrice(unsigned int count, ...);
 void				ft_free(unsigned int count, ...);
+int					ft_puthex_fd(int nb, int isMaj, int fd);
+int					ft_u_putnbr_fd(unsigned int nb, int fd);
+int					ft_pointer(size_t addr);
 
 #endif

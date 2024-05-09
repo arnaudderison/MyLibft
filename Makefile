@@ -6,7 +6,7 @@
 #    By: aderison <aderison@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2024/05/09 15:43:17 by aderison         ###   ########.fr        #
+#    Updated: 2024/05/09 15:47:34 by aderison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ LIBFT_NUM = $(addprefix number/, ft_isalnum.c ft_isascii.c ft_isdigit.c ft_itoa.
 
 #Libft memory
 LIBFT_MEM = $(addprefix memory/, ft_bzero.c ft_calloc.c ft_memchr.c ft_memcmp.c \
-ft_memcpy.c ft_memmove.c ft_memset.c)
+ft_memcpy.c ft_memmove.c ft_memset.c ft_free.c ft_free_matrice.c)
 
 #Libft list
 LIBFT_LST = $(addprefix list/, ft_lstadd_back_bonus.c ft_lstclear_bonus.c \
